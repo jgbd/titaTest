@@ -1,0 +1,13 @@
+package com.juanbastidas.appdeudas;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AppDeudasApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AppDeudasApplication.class, args);
+	}
+
+}

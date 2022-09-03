@@ -1,6 +1,7 @@
 package com.juanbastidas.appdeudas.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapKeyColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -29,10 +32,9 @@ public class UserBank implements Serializable {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-    @OneToOne(mappedBy = "userBank", cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_debt")
-    private Debt debt;
+    
+    @OneToMany(mappedBy="userBank")
+    Set<Debt> debt;
     
 	public Long getId() {
 		return id;
@@ -57,14 +59,5 @@ public class UserBank implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	public Debt getDebt() {
-		return debt;
-	}
-
-	public void setDebt(Debt debt) {
-		this.debt = debt;
-	}
-    
     
 }

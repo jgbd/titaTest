@@ -25,8 +25,8 @@ public class DataLoader implements CommandLineRunner {
 
 	private void loadUserData() {
 		if(userRespository.count() == 0) {
-			User user1 = new User("Juan", true);
-			User user2 = new User("Gabriel", true);
+			User user1 = new User("Juan");
+			User user2 = new User("Gabriel");
 			userRespository.save(user1);
 			userRespository.save(user2);
 		}

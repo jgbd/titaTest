@@ -26,6 +26,14 @@ public class Bank implements Serializable{
 	@OneToMany(mappedBy = "bank")
     Set<UserBank> userBank;
 	
+	
+	/**
+	 * 
+	 */
+	public Bank() {
+		super();
+	}
+
 	public Bank(String name) {
 		super();
 		this.name = name;

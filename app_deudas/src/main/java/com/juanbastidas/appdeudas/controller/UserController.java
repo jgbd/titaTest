@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.juanbastidas.appdeudas.entity.User;
+import com.juanbastidas.appdeudas.response.UserBankDebt;
 import com.juanbastidas.appdeudas.service.UserService;
 
 @RestController
@@ -36,7 +37,7 @@ public class UserController {
 	// Read user
 	@GetMapping("/{id}")
 	public ResponseEntity<?> read(@PathVariable(value = "id") Long userId) {
-		Optional<User> oUser = userService.findById(userId);
+		Optional<UserBankDebt> oUser = userService.getBankAndDebtById(userId);
 		if (!oUser.isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
@@ -53,7 +54,6 @@ public class UserController {
 		}
 
 		oUser.get().setName(userDetails.getName());
-		oUser.get().setEnabled(userDetails.getEnabled());
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(oUser.get()));
 	}

@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.juanbastidas.appdeudas.entity.User;
+import com.juanbastidas.appdeudas.response.UserBankDebt;
 
 public interface UserService {
 
@@ -18,4 +19,6 @@ public interface UserService {
 	public User save(User user);
 	
 	public void deleteById(Long id);
+	
+	public Optional<UserBankDebt> getBankAndDebtById(Long Id);
 }

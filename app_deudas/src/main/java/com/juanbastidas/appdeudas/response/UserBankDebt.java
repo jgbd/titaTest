@@ -1,17 +1,19 @@
+/*
+ * author: Juan Bastidas
+ * */
 package com.juanbastidas.appdeudas.response;
 
 import java.util.List;
 
 import com.juanbastidas.appdeudas.entity.Bank;
-import com.juanbastidas.appdeudas.entity.Debt;
 import com.juanbastidas.appdeudas.entity.User;
 
 public class UserBankDebt {
 	private User user;
 	private List<Bank> lstBanks;
-	private List<List<Debt>> lstDebts;
+	private List<List<DebtResponse>> lstDebts;
 
-	public UserBankDebt(User user, List<Bank> lstBanks, List<List<Debt>> lstDebts) {
+	public UserBankDebt(User user, List<Bank> lstBanks, List<List<DebtResponse>> lstDebts) {
 		this.user = user;
 		this.lstBanks = lstBanks;
 		this.lstDebts = lstDebts;
@@ -28,10 +30,10 @@ public class UserBankDebt {
 	public void setLstBanks(List<Bank> lstBanks) {
 		this.lstBanks = lstBanks;
 	}
-	public List<List<Debt>> getLstDebts() {
+	public List<List<DebtResponse>> getLstDebts() {
 		return lstDebts;
 	}
-	public void setLstDebts(List<List<Debt>> lstDebts) {
+	public void setLstDebts(List<List<DebtResponse>> lstDebts) {
 		this.lstDebts = lstDebts;
 	}
 	

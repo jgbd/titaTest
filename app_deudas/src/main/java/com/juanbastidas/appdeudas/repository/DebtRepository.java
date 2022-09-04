@@ -1,3 +1,6 @@
+/*
+ * author: Juan Bastidas
+ * */
 package com.juanbastidas.appdeudas.repository;
 
 import java.util.List;
@@ -7,12 +10,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.juanbastidas.appdeudas.entity.Debt;
+import com.juanbastidas.appdeudas.response.DebtResponse;
 
 @Repository
 public interface DebtRepository extends JpaRepository<Debt, Long>{
-	@Query(value = "SELECT id_debt, valor, cuotas, user_bank_id, ub.id FROM "
-			+ "db_deudas.debts d inner join db_deudas.user_bank ub on "
-			+ " d.user_bank_id = ub.id"
-			+ " WHERE user_bank_id =?1", nativeQuery = true)
-	List<Debt> findByUserBank_Id(Long userBankId); 
+	@Query(value = "SELECT"
+			+ " NEW com.juanbastidas.appdeudas.response.DebtResponse(d.id as idDeuda, d.Valor as valor, b.id as idBank, d.cuotas as cuotas)  FROM"
+			+ " Debt d inner join UserBank ub on"
+			+ " d.userBank.id = ub.id"
+			+ " join Bank b on"
+			+ " ub.bank.id = b.id"
+			+ " WHERE user_bank_id =?1")
+	List<DebtResponse> findByUserBank_Id(Long userBankId); 
 }

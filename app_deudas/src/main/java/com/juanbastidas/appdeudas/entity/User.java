@@ -1,3 +1,7 @@
+
+/*
+ * author: Juan Bastidas
+ * */
 package com.juanbastidas.appdeudas.entity;
 
 import java.io.Serializable;

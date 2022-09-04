@@ -1,3 +1,6 @@
+/*
+ * author: Juan Bastidas
+ * */
 package com.juanbastidas.appdeudas.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
